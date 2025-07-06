@@ -21,12 +21,7 @@ app.get('/health', (req, res) => {
   res.json({ status: 'OK', timestamp: new Date().toISOString() });
 });
 
-// For Vercel deployment
-if (process.env.NODE_ENV !== 'production') {
-  app.listen(PORT, () => {
-    console.log(`Server running on port ${PORT}`);
-  });
-}
-
-// Export for Vercel
-export default app; 
+// Start server
+app.listen(PORT, () => {
+  console.log(`Server running on port ${PORT}`);
+}); 
