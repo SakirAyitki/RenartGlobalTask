@@ -109,7 +109,7 @@ const ProductCarousel: React.FC<ProductCarouselProps> = ({ products, title }) =>
       updateProgress(moveEvent.clientX, true);
     };
 
-    const handleMouseUp = (upEvent: MouseEvent) => {
+    const handleMouseUp = () => {
       setIsDragging(false);
       document.removeEventListener('mousemove', handleMouseMove);
       document.removeEventListener('mouseup', handleMouseUp);
@@ -177,7 +177,7 @@ const ProductCarousel: React.FC<ProductCarouselProps> = ({ products, title }) =>
                   setProgress(Math.min(progressPercent, 100));
                 }
               }}
-              onBreakpoint={(swiper, breakpointParams) => {
+              onBreakpoint={(_, breakpointParams) => {
                 // Update current slides per view when breakpoint changes
                 setCurrentSlidesPerView(breakpointParams.slidesPerView as number);
               }}
